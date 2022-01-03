@@ -21,7 +21,7 @@ public class StudentKafkaProcessor {
     @Scheduled(cron = "${producer.schedule}", zone = "CST")
     public void process() {
         if(isJobEnabled) {
-
+            service.publish();
         }
     }
 }
