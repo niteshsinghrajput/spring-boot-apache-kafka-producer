@@ -1,0 +1,34 @@
+spring:
+  database:
+    driverClassName: org.postgresql.Driver
+  datasource:
+    plateform: postgres
+    url: ${DB-URL}
+    username: ${DB-USERNAME}
+    password: ${DB-PASSWORD}
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        formate_sql: false
+        jdbc:
+          batch_size: 50
+    show-sql: false
+
+producer:
+  enabled: true
+  schedule: 0 */5 * ? * *
+
+kafka:
+  bootstrap-server: ${BOOTSTRAP-SERVER}
+  topic:
+    name: ${TOPIC-NAME}
+  producer:
+    ssl:
+      truststore-location: ${TRUSTSTORE-LOCATION}
+      truststore-password: ${TRUSTSTORE-PASSWORD}
+      keystore-location: ${KEYSTORE-LOCATION}
+      keystore-password: ${KEYSTORE-PASSWORD}
+      key-password: ${KEY-PASSWORD}
